@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">To_Do_List</string>
+    <string name="create_a_to_do">Create a To Do</string>
+    <string name="status">Status</string>
+    <string name="content">Content</string>
+    <string name="toDoList">To Do List</string>
+</resources>
