@@ -9,13 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.to_do_list.adapter.RecyclerViewAdapter
-import com.example.to_do_list.viewModel.NoteViewModel
+import com.example.to_do_list.viewModel.ToDoViewModel
 import com.example.to_do_list.databinding.LayoutMainFragmentBinding
 import com.example.to_do_list.room.ToDo
 
 class MainFragment : Fragment(){
     private lateinit var viewBinding : LayoutMainFragmentBinding
-    private lateinit var noteViewModel : NoteViewModel
+    private lateinit var toDoViewModel : ToDoViewModel
     private lateinit var adapter: RecyclerViewAdapter
     private var toDoList : ArrayList<ToDo>? = null
     override fun onCreateView(
@@ -28,7 +28,7 @@ class MainFragment : Fragment(){
             onChangeToAdd()
         }
         toDoList = ArrayList()
-        noteViewModel = ViewModelProvider(this)[NoteViewModel::class.java]
+        toDoViewModel = ViewModelProvider(this)[ToDoViewModel::class.java]
         setUpRecyclerView()
         getData()
         return viewBinding.root
@@ -43,7 +43,7 @@ class MainFragment : Fragment(){
     }
     @SuppressLint("NotifyDataSetChanged")
     private fun getData(){
-        noteViewModel.getLiveDataNote(requireContext()).observe(viewLifecycleOwner){
+        toDoViewModel.getLiveDataNote(requireContext()).observe(viewLifecycleOwner){
             if(toDoList!!.isNotEmpty()){
                 toDoList!!.clear()
                 for(note in it){

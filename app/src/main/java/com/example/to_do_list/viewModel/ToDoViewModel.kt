@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.example.to_do_list.repository.ToDoRepository
 import com.example.to_do_list.room.ToDo
 
-class NoteViewModel() : ViewModel() {
+class ToDoViewModel() : ViewModel() {
     private lateinit var toDoRepository: ToDoRepository
     private lateinit var liveDataToDoList: LiveData<List<ToDo>>
 
